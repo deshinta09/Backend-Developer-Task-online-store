@@ -1,0 +1,23 @@
+[
+    {
+      "name": "iPhone 13",
+      "type": "Smartphone",
+      "stock": 50,
+      "AuthorId": 1,
+      "description": "The latest iPhone model with advanced features."
+    },
+    {
+      "name": "Samsung Galaxy S21",
+      "type": "Smartphone",
+      "stock": 30,
+      "AuthorId": 2,
+      "description": "Powerful Android smartphone with a sleek design."
+    },
+    {
+      "name": "Google Pixel 6",
+      "type": "Smartphone",
+      "stock": 20,
+      "AuthorId": 3,
+      "description": "Flagship Google smartphone known for its excellent camera."
+    }
+  ]
