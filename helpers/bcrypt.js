@@ -1,7 +1,6 @@
 const bcrypt = require('bcryptjs')
-const secret = process.env.secret
 
-const hashPassword = (password) => bcrypt.hashSync(password,secret)
+const hashPassword = (password) => bcrypt.hashSync(password,8)
 const comparePassword = (passwordAsli, hash) => bcrypt.compareSync(passwordAsli,hash)
 
 module.exports={
