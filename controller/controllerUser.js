@@ -7,7 +7,7 @@ class ControllerUser {
         try {
             let { email, password } = req.body
             
-            let user = await User.findOne({email})
+            let user = await User.findOne({ where: {email} })
             if(!user){
                 throw {name:'unauthorized', message:'Invalid email/password'}
             }

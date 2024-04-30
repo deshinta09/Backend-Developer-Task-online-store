@@ -13,8 +13,11 @@ function errors (error,req,res,next){
     } else if(error.name === 'SequelizeValidationError'){
         status = 400
         message = error.errors[0].message
-    } else if(error.name==='Not Found'){
+    } else if(error.name === 'Not Found'){
         status = 404
+        message = error.message
+    } else if(error.name === 'forbidden'){
+        status = 403
         message = error.message
     }
 

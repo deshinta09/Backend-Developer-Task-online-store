@@ -4,7 +4,7 @@
 Response (200-OK)
 ```json
 {
-    "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzE0NDQwNTg1fQ.uOU5buvZWGB6675t3rvz109RDyhHA0Nogh675vxaATI"
+    "access_token": "string"
 }
 ```
 
@@ -99,6 +99,12 @@ Response (401-Unauthorized)
 ```json
 {
     "message": "Invalid Token"
+}
+```
+Response (403-Forbidden)
+```json
+{
+    "message": "You are not authorize"
 }
 ```
 Response (500-Internal Server Error)
