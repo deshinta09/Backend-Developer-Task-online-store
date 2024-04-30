@@ -1,9 +1,17 @@
+const { Op } = require('sequelize')
 const { Phone } = require('../models/')
 
 class ControllerPhone {
     static async getPhone (req,res,next){
         try {
-            let phones = await Phone.findAll()
+            let option = { where: {} }
+            let { search } = req.query
+            if(search){
+                option.where.name = {
+                    [Op.iLike] : `%${search}%`
+                }
+            }
+            let phones = await Phone.findAll(option)
 
             res.status(200).json(phones)
         } catch (error) {
