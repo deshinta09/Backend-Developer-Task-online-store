@@ -1,15 +1,120 @@
 # Backend-Developer-Task-online-store
 
+Online Store API Dokumentation
+
+## Endpoint :
+List of available endpoints:
+
+- `POST /login`
+- `POST /register`
+- `GET /phones`
+- `POST /phones`
+- `PUT /phones`
+- `DELETE /phone`
+
+
 ## POST /login
-Response (200-OK)
+Description:
+- Post login from database
+
+Request:
+- body: 
+
+```json
+{
+  "email": "string",
+  "password": "string"
+}
+```
+
+_Response (200-OK)_
 ```json
 {
     "access_token": "string"
 }
 ```
+_Response (400-Bad Request)_
+```json
+{
+    "message": "Email is require"
+}
+```
+OR
+```json
+{
+    "message": "password is require"
+}
+```
+OR 
+```json
+{
+    "message": "Email must be type email"
+}
+```
+&nbsp;
+
+## POST /register
+Description:
+- Post user to database
+
+Request:
+- body: 
+```json
+{
+    "email": "string",
+    "username": "string",
+    "password": "string",
+    "role": "string"
+}
+```
+_Respnse (201-OK)_
+```json
+{
+    "id": "integer",
+    "username": "string",
+    "email": "string",
+    "role": "string"
+}
+```
+_Response (400-Bad Request)_
+```json
+{
+    "message": "Email is require"
+}
+```
+OR 
+```json
+{
+    "message": "Email must be type email"
+}
+```
+OR
+```json
+{
+    "message": "Password is require"
+}
+```
+OR
+```json
+{
+    "message": "Role is require"
+}
+```
+&nbsp;
 
 ## GET /phones
-Response (200-OK)
+Description :
+- Get phone from database
+
+Request:
+- headers: 
+```json
+{
+  "access_token": "string"
+}
+```
+
+_Response (200-OK)_
 ```json
 [
     {
@@ -25,9 +130,30 @@ Response (200-OK)
     ,...
 ]
 ```
+&nbsp;
 
 ## POST /phones
-Resphonse (201-OK)
+Description :
+- Post phone from database
+
+Request:
+- headers: 
+```json
+{
+  "access_token": "string"
+}
+```
+- body: 
+```json
+{
+    "name": "string",
+    "type": "string",
+    "stock": "string",
+    "description": "string"
+}
+```
+
+_Resphonse (201-OK)_
 ```json
 {
     "id": 4,
@@ -41,7 +167,7 @@ Resphonse (201-OK)
 }
 ```
 
-Response (400-Bad Request)
+_Response (400-Bad Request)_
 ```json
 {
     "message": "Name is require"
@@ -65,49 +191,96 @@ OR
     "message": "Description is require"
 }
 ```
+&nbsp;
 
-## PUT /phones
-Response (200-OK)
+## PUT /phones/:id
+Description :
+- Put phone from database by id
+
+Request:
+- params:
+```json
+{
+    "id": "integer"
+}
+```
+- body: 
+```json
+{
+    "name": "string",
+    "type": "string",
+    "stock": "string",
+    "description": "string"
+}
+```
+- headers: 
+```json
+{
+  "access_token": "string"
+}
+```
+
+_Response (200-OK)_
 ```json
 {
     "message": "Phone {name phone} success to update"
 }
 ```
-Response (404-Not Found)
+_Response (404-Not Found)_
 ```json
 {
     "message": "Phone not found"
 }
 ```
+&nbsp;
 
-## DELETE /phone 
-Response (200-OK)
+## DELETE /phone/:id
+Description :
+- Delete phone from database by id
+
+Request:
+- params:
+```json
+{
+    "id": "integer"
+}
+```
+- headers: 
+```json
+{
+  "access_token": "string"
+}
+```
+
+_Response (200-OK)_
 ```json
 {
     "message": "Phone Vivo Y51 success to delete"
 }
 ```
-Response (404-Not Found)
+_Response (404-Not Found)_
 ```json
 {
     "message": "Phone not found"
 }
 ```
+&nbsp;
+
 
 ## Global Error
-Response (401-Unauthorized)
+_Response (401-Unauthorized)_
 ```json
 {
     "message": "Invalid Token"
 }
 ```
-Response (403-Forbidden)
+_Response (403-Forbidden)_
 ```json
 {
     "message": "You are not authorize"
 }
 ```
-Response (500-Internal Server Error)
+_Response (500-Internal Server Error)_
 ```json
 {
     "message": "Internal Server Error"
