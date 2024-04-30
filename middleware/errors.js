@@ -1,8 +1,7 @@
 function errors (error,req,res,next){
     let status = 500
-    let message = {
-        message:"Internal Server Error"
-    }
+    let message = "Internal Server Error"
+
     console.log(error,'<- error di function');
 
     if(error.name === 'unauthorized'){
@@ -14,6 +13,9 @@ function errors (error,req,res,next){
     } else if(error.name === 'SequelizeValidationError'){
         status = 400
         message = error.errors[0].message
+    } else if(error.name==='Not Found'){
+        status = 404
+        message = error.message
     }
 
     res.status(status).json({message})
