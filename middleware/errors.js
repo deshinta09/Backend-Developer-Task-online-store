@@ -16,8 +16,11 @@ function errors (error,req,res,next){
     } else if(error.name === 'Not Found'){
         status = 404
         message = error.message
-    } else if(error.name === 'forbidden'){
+    } else if(error.name === 'Forbidden'){
         status = 403
+        message = error.message
+    } else if(error.name === 'Bad Request'){
+        status = 400
         message = error.message
     }
 

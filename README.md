@@ -255,7 +255,7 @@ Request:
 _Response (200-OK)_
 ```json
 {
-    "message": "Phone Vivo Y51 success to delete"
+    "message": "Phone {name phone} success to delete"
 }
 ```
 _Response (404-Not Found)_

@@ -15,6 +15,4 @@ app.use(router)
 
 app.use(errors)
 
-app.listen(port, ()=> console.log(`listen on port ${port}...`))
-
 module.exports = app

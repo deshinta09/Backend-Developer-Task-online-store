@@ -25,7 +25,7 @@ class ControllerPhone {
 
             let phone = await Phone.create({ name, type, stock, description, AuthorId: req.user.id })
 
-            res.status(200).json(phone)
+            res.status(201).json(phone)
         } catch (error) {
             next(error)
         }

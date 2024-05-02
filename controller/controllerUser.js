@@ -6,6 +6,9 @@ class ControllerUser {
     static async login (req,res,next){
         try {
             let { email, password } = req.body
+            if(!email || !password){
+                throw {name: 'Bad Request', message: 'Invalid Input'}
+            }
             
             let user = await User.findOne({ where: {email} })
             if(!user){
